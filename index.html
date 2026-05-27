@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BB Mundinho - Tudo para o seu bebê</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="menu-admin-container">
+        <button class="btn-tres-pontos" onclick="abrirAdmin()">⋮</button>
+    </div>
+
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo-circulo">
+                <span class="logo-txt-bb">BB</span>
+                <span class="logo-txt-mundinho">mundinho</span>
+            </div>
+            <p class="slogan">🌸 TUDO PARA O SEU BEBÊ 🌸</p>
+            <div class="badges">
+                <span class="badge">NOVOS</span>
+                <span class="badge">SEMI NOVOS</span>
+            </div>
+        </div>
+        
+        <button class="btn-carrinho-flutuante" onclick="abrirModalCarrinho()">
+            🛒 Carrinho (<span id="carrinho-contador">0</span>)
+        </button>
+    </header>
+
+    <section class="filtros-container">
+        <div class="filtro-grupo">
+            <label for="filtro-categoria">Peça:</label>
+            <select id="filtro-categoria" onchange="filtrarProdutos()">
+                <option value="todos">Todas</option>
+                <option value="Bodies">Bodies</option>
+                <option value="Macacões">Macacões</option>
+                <option value="Conjuntos">Conjuntos</option>
+                <option value="Acessórios">Acessórios</option>
+            </select>
+        </div>
+        <div class="filtro-grupo">
+            <label for="filtro-tamanho">Tam:</label>
+            <select id="filtro-tamanho" onchange="filtrarProdutos()">
+                <option value="todos">Todos</option>
+                <option value="RN">RN</option>
+                <option value="P">P</option>
+                <option value="M">M</option>
+                <option value="G">G</option>
+                <option value="GG">GG</option>
+            </select>
+        </div>
+    </section>
+
+    <main class="catalogo-container">
+        <div id="produtos-grid" class="produtos-grid">
+            </div>
+    </main>
+
+    <div id="modal-detalhes" class="modal">
+        <div class="modal-content modal-detalhes-content">
+            <span class="fechar-modal" onclick="fecharModalDetalhes()">&times;</span>
+            <div id="conteudo-detalhes-produto">
+                </div>
+        </div>
+    </div>
+
+    <div id="modal-carrinho" class="modal">
+        <div class="modal-content">
+            <span class="fechar-modal" onclick="fecharModalCarrinho()">&times;</span>
+            <h2>Seu Carrinho 💕</h2>
+            <div id="itens-carrinho" class="itens-carrinho">
+                </div>
+            <div class="carrinho-total">
+                <h3>Total: R$ <span id="valor-total">0,00</span></h3>
+            </div>
+            <button class="btn-finalizar" onclick="enviarPedidoWhatsApp()">
+                Finalizar Pedido no WhatsApp 📱
+            </button>
+        </div>
+    </div>
+
+    <div id="modal-admin" class="modal">
+        <div class="modal-content modal-admin-content">
+            <span class="fechar-modal" onclick="fecharAdmin()">&times;</span>
+            <h2 class="admin-titulo">Painel Administrador 🛠️</h2>
+            
+            <form id="form-produto" class="form-cadastro-simplificado" onsubmit="cadastrarProduto(event)">
+                <div class="form-linha">
+                    <input type="text" id="nome" required placeholder="Nome do Produto (Ex: Macacão Nuven)">
+                    <input type="number" id="preco" step="0.01" required placeholder="Preço R$ (Ex: 49.90)">
+                </div>
+                
+                <div class="form-linha-tripla">
+                    <select id="categoria" required>
+                        <option value="" disabled selected>Categoria</option>
+                        <option value="Bodies">Bodies</option>
+                        <option value="Macacões">Macacões</option>
+                        <option value="Conjuntos">Conjuntos</option>
+                        <option value="Acessórios">Acessórios</option>
+                    </select>
+                    <select id="tamanho" required>
+                        <option value="" disabled selected>Tam.</option>
+                        <option value="RN">RN</option>
+                        <option value="P">P</option>
+                        <option value="M">M</option>
+                        <option value="G">G</option>
+                        <option value="GG">GG</option>
+                    </select>
+                    <select id="condicao" required>
+                        <option value="Novo">Novo</option>
+                        <option value="Semi Novo">Semi Novo</option>
+                    </select>
+                </div>
+
+                <div class="secao-fotos-cadastro">
+                    <p style="font-size: 13px; font-weight: bold; color: #db7093; margin-bottom: 5px;">Fotos da Peça (Máx. 3):</p>
+                    <div class="form-linha-foto">
+                        <label class="btn-upload-foto">
+                            📸 Foto 1 (Capa)
+                            <input type="file" id="imagem-file-1" accept="image/*" onchange="processarFotoMultipla(this, 1)" style="display: none;">
+                        </label>
+                        <span id="foto-status-1" class="status-foto-txt">Nenhuma foto</span>
+                    </div>
+                    <div class="form-linha-foto">
+                        <label class="btn-upload-foto">
+                            📸 Foto 2 (Opcional)
+                            <input type="file" id="imagem-file-2" accept="image/*" onchange="processarFotoMultipla(this, 2)" style="display: none;">
+                        </label>
+                        <span id="foto-status-2" class="status-foto-txt">Nenhuma foto</span>
+                    </div>
+                    <div class="form-linha-foto">
+                        <label class="btn-upload-foto">
+                            📸 Foto 3 (Opcional)
+                            <input type="file" id="imagem-file-3" accept="image/*" onchange="processarFotoMultipla(this, 3)" style="display: none;">
+                        </label>
+                        <span id="foto-status-3" class="status-foto-txt">Nenhuma foto</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-cadastrar-direto">Cadastrar Roupinha no Site ✨</button>
+            </form>
+
+            <h3>Gerenciar Roupas Ativas</h3>
+            <div class="admin-lista-exclusao" id="admin-produtos-lista">
+                </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

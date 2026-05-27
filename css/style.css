@@ -1,0 +1,538 @@
+/* ==========================================================================
+   PALETA BB MUNDINHO: Branco (Base), Rosa Pastel (#FFD1DC) e Azul Bebê (#BFEAF5)
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #ffffff;
+    color: #4A5568; /* Cinza suave para leitura confortável */
+}
+
+/* Menu Oculto Admin (Três Pontinhos) */
+.menu-admin-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+}
+
+.btn-tres-pontos {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #CBD5E1; /* Tom neutro discreto */
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.2s;
+}
+
+.btn-tres-pontos:hover {
+    color: #BFEAF5; /* Brilha em azul bebê ao passar o mouse */
+}
+
+/* Header / Logotipo Harmonizado */
+.header {
+    background-color: #ffffff;
+    padding: 35px 15px;
+    text-align: center;
+    border-bottom: 3px solid #F1F5F9;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-circulo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    /* Degradê suave unindo as duas cores da loja */
+    background: linear-gradient(135deg, #FFD1DC 0%, #BFEAF5 100%);
+    box-shadow: 0 6px 20px rgba(191, 234, 245, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo-txt-bb {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 44px;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 35px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo-txt-mundinho {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.slogan {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: #718096;
+    font-weight: 700;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+/* Badges da marca */
+.badges {
+    margin-top: 10px;
+}
+
+.badges .badge {
+    background-color: #F8FAFC;
+    color: #4A5568;
+    padding: 5px 14px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 700;
+    margin: 0 4px;
+    border: 1px solid #E2E8F0;
+}
+
+/* Carrinho Flutuante (Estilo Azul Bebê Amigável) */
+.btn-carrinho-flutuante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #BFEAF5;
+    color: #2D3748; /* Texto escuro para contraste perfeito */
+    border: none;
+    padding: 15px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(191, 234, 245, 0.6);
+    z-index: 99;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-carrinho-flutuante:hover {
+    transform: scale(1.05);
+    background-color: #A3DCEB;
+}
+
+/* Seção de Filtros */
+.filtros-container {
+    max-width: 1000px;
+    margin: 25px auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 15px;
+}
+
+.filtro-grupo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #718096;
+}
+
+.filtro-grupo select {
+    padding: 8px 16px;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    font-family: 'Quicksand', sans-serif;
+    color: #4A5568;
+    background-color: #fff;
+    outline: none;
+    cursor: pointer;
+}
+
+.filtro-grupo select:focus {
+    border-color: #BFEAF5;
+}
+
+/* Grade de Produtos (Catálogo) */
+.catalogo-container {
+    max-width: 1000px;
+    margin: 0 auto 100px auto;
+    padding: 0 15px;
+}
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 25px;
+}
+
+.produto-card {
+    background-color: #ffffff;
+    border: 1px solid #F1F5F9;
+    border-radius: 16px;
+    padding: 14px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.produto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.produto-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    background-color: #F8FAFC;
+}
+
+/* Tag de Condição (Ajustada para o Azul Bebê) */
+.produto-tag-condicao {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    background-color: #BFEAF5;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #2D3748;
+}
+
+.produto-nome {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 6px;
+}
+
+.produto-detalhes {
+    font-size: 12px;
+    color: #718096;
+    margin-bottom: 8px;
+}
+
+.produto-preco {
+    font-size: 17px;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 12px;
+}
+
+/* Botão Adicionar Rápido (Rosa Pastel) */
+.btn-adicionar {
+    background-color: #FFD1DC;
+    color: #4A5568;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-adicionar:hover {
+    background-color: #FBC2CE;
+}
+
+/* ==========================================================================
+   MODAIS E INTERFACES EXTRAS
+   ========================================================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px); /* Efeito fosco elegante no fundo */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 8% auto;
+    padding: 25px;
+    border-radius: 18px;
+    width: 90%;
+    max-width: 440px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.fechar-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 26px;
+    cursor: pointer;
+    color: #A0AEC0;
+    transition: color 0.2s;
+}
+
+.fechar-modal:hover {
+    color: #4A5568;
+}
+
+/* Modal Detalhes + Estrutura do Carrossel */
+.modal-detalhes-content {
+    max-width: 480px;
+    margin: 5% auto;
+}
+
+.detalhes-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.carrossel-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: #F8FAFC;
+    border: 1px solid #EDF2F7;
+}
+
+.carrossel-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.carrossel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn-carrossel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #E2E8F0;
+    color: #4A5568;
+    font-size: 16px;
+    font-weight: bold;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: 0.2s;
+}
+
+.btn-carrossel-nav:hover {
+    background-color: #BFEAF5;
+    border-color: #BFEAF5;
+}
+
+.nav-esquerda { left: 12px; }
+.nav-direita { right: 12px; }
+
+.carrossel-indicador {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.35);
+    color: white;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.detalhes-info h2 {
+    color: #2D3748;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.detalhes-info .preco {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2D3748;
+    margin: 12px 0;
+}
+
+.detalhes-info p {
+    font-size: 14px;
+    color: #4A5568;
+    margin-bottom: 6px;
+}
+
+/* Painel Admin Modernizado */
+.modal-admin-content {
+    max-width: 550px;
+    margin: 2% auto;
+    max-height: 92vh;
+    overflow-y: auto;
+}
+
+.admin-titulo {
+    color: #2D3748;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.form-cadastro-simplificado {
+    background-color: #F8FAFC;
+    border: 1px dashed #CBD5E1;
+    padding: 18px;
+    border-radius: 12px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-linha { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; }
+.form-linha-tripla { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+.form-cadastro-simplificado input, 
+.form-cadastro-simplificado select {
+    padding: 12px;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 13px;
+    width: 100%;
+    outline: none;
+    background-color: #fff;
+}
+
+.form-cadastro-simplificado input:focus, 
+.form-cadastro-simplificado select:focus {
+    border-color: #BFEAF5;
+}
+
+.secao-fotos-cadastro {
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+}
+
+.form-linha-foto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.form-linha-foto:last-child { margin-bottom: 0; }
+
+.btn-upload-foto {
+    background-color: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    color: #4A5568;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-upload-foto:hover {
+    background-color: #E2E8F0;
+}
+
+.status-foto-txt { font-size: 12px; color: #718096; }
+
+/* Botão Cadastrar Usa o Azul Bebê */
+.btn-cadastrar-direto {
+    background-color: #BFEAF5;
+    color: #2D3748;
+    border: none;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-cadastrar-direto:hover {
+    background-color: #A3DCEB;
+}
+
+/* Itens da lista de exclusão */
+.admin-lista-exclusao {
+    margin-top: 20px;
+    max-height: 180px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.admin-linha-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    border-bottom: 1px solid #EDF2F7;
+    font-size: 13px;
+}
+
+.btn-excluir-peca {
+    background-color: #FED7D7;
+    color: #C53030;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.2s;
+}
+
+.btn-excluir-peca:hover {
+    background-color: #FEB2B2;
+}
+
+/* Interface do Carrinho */
+.itens-carrinho { max-height: 200px; overflow-y: auto; margin: 20px 0; }
+.item-carrinho-linha { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #EDF2F7; }
+.btn-remover-item { background: none; border: none; color: #E53E3E; cursor: pointer; font-size: 13px; font-weight: 600; }
+.carrinho-total { text-align: right; margin-bottom: 20px; color: #2D3748; }
+.btn-finalizar { background-color: #4CD137; color: white; border: none; width: 100%; padding: 14px; font-size: 15px; font-weight: bold; border-radius: 25px; cursor: pointer; box-shadow: 0 4px 10px rgba(76, 209, 55, 0.3); }
+.btn-finalizar:hover { background-color: #44BD32; }
+
+/* Otimização responsiva para Celulares */
+@media (max-width: 480px) {
+    .produtos-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+    .produto-card { padding: 10px; border-radius: 12px; }
+    .produto-card img { height: 140px; border-radius: 8px; }
+    .form-linha { grid-template-columns: 1fr; gap: 8px; }
+    .form-linha-tripla { grid-template-columns: 1fr; gap: 8px; }
+    .carrossel-container { height: 230px; }
+    .modal-content { padding: 20px; margin: 15% auto; }
+}
