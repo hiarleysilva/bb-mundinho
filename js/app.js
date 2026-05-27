@@ -1,5 +1,5 @@
 // ================= CONFIGURAÇÕES DA LOJA =================
-const WHATSAPP_LOJA = "5561999027057"; 
+const WHATSAPP_LOJA = "5561984978310"; 
 const SENHA_ADMIN = "hakila";          
 
 // Vetor para segurar as fotos do cadastro atual antes de enviar
